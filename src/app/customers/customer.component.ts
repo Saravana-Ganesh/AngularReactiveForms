@@ -9,6 +9,7 @@ import { Customer } from './customer';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+  
   customerForm:FormGroup
   constructor(private formBuilder:FormBuilder) { }
 
@@ -43,6 +44,7 @@ export class CustomerComponent implements OnInit {
   save(): void {
     console.log(this.customerForm);
     console.log('Saved: ' + JSON.stringify(this.customerForm.value));
+    console.log(JSON.parse(this.customerForm.value))
   }
 
   populateTestData(){
@@ -62,5 +64,9 @@ export class CustomerComponent implements OnInit {
       phoneControl.clearValidators();
     }
     phoneControl.updateValueAndValidity();
+  }
+  public show=false;
+  showForm(){
+    this.show = !this.show;
   }
 }
